@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    color: whitesmoke;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-image: url('../images/background.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#to_do {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    background-color: #10101d;
+    padding: 18px;
+    border-radius: 8px;
+    width: 600px; /* Ajuste a largura conforme necessário */
+    margin-top: 20px;
+}
+
+#to_do h1 {
+    color: #e5f9ff;
+    font-size: 28px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#tasks, #overdue-tasks, #completed-tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 400px;
+    overflow: auto;
+}
+
+.to-do-form {
+    display: flex;
+    width: 100%;
+}
+
+.to-do-form input[type="text"], .to-do-form input[type="datetime-local"] {
+    background-color: transparent;
+    border: none;
+    color: #e5f9ff;
+    font-size: 16px;
+    width: 100%;
+    padding: 4px;
+    border-bottom: 2px solid #ee9ca7;
+}
+
+.to-do-form input[type="text"]:focus-visible, .to-do-form input[type="datetime-local"]:focus-visible {
+    outline: none;
+}
+
+.to-do-form .form-button {
+    border: none;
+    min-width: 40px;
+    min-height: 40px;
+    background-color: #ee9ca7;
+    border-radius: 100%;
+    font-size: 20px;
+    transition: scale 0.5s ease;
+    color: #fff; /* Adicione esta linha para alterar a cor do ícone */
+}
+
+.to-do-form .form-button:hover {
+    cursor: pointer;
+    scale: 1.05;
+    color: #fff; /* Adicione esta linha para garantir que a cor permaneça clara ao passar o mouse */
+}
+
+/* Para alterar a cor do ícone do input de data/hora no WebKit */
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    filter: invert(100%); /* Isso deve deixar o ícone branco */
+}
+
+.task {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: #262626;
+    background-color: #191933;
+    padding: 8px 12px;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.task-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.task-header .task-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.task.overdue {
+    border-left: 4px solid red;
+    background-color: #332222;
+}
+
+.task.completed {
+    border-left: 4px solid green;
+    background-color: #223322;
+}
+
+.task .progress {
+    margin-right: 10px;
+}
+
+.task .progress.done + .task-description {
+    text-decoration: line-through;
+    color: #e5f9ffa7;
+}
+
+.task .task-description {
+    font-size: 16px;
+    color: #fff;
+    padding: 4px 0px;
+    flex: 1;
+}
+
+.task .due-date, .task .completed-at {
+    font-size: 14px;
+    color: #e5f9ffa7;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.overdue-time {
+    color: red;
+    font-size: 14px;
+    display: block;
+    margin-top: 4px;
+}
+
+.to-do-form.edit-task {
+    flex-direction: column;
+    gap: 10px;
+}
+
+.to-do-form.edit-task input {
+    background-color: transparent;
+    border: none;
+    color: #e5f9ff;
+    font-size: 16px;
+    padding: 4px;
+    border-bottom: 2px solid #ee9ca7;
+}
+
+.to-do-form.edit-task button {
+    align-self: flex-end;
+    border: none;
+    min-width: 60px;
+    min-height: 30px;
+    background-color: #ee9ca7;
+    border-radius: 20px;
+    font-size: 16px;
+    transition: scale 0.5s ease;
+    color: white;
+}
+
+.to-do-form.edit-task button:hover {
+    cursor: pointer;
+    scale: 1.05;
+}
+
+.action-button.edit-button {
+    color: #6c9bbc;
+}
+
+.action-button.delete-button {
+    color: #ee9ca7;
+}
+
+@media screen and (max-width: 600px) {
+    #to_do {
+        width: 300px;
+    }
+}

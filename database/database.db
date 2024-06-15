@@ -1,0 +1,12 @@
+CREATE DATABASE to_do_list;
+
+USE to_do_list;
+
+CREATE TABLE task (
+    id SERIAL PRIMARY KEY,
+    description VARCHAR(50) NOT NULL,
+    completed BOOLEAN DEFAULT FALSE,
+    due_date TIMESTAMP NOT NULL,
+    completed_at TIMESTAMP NULL,
+    delay_message VARCHAR(255) NULL
+);
